@@ -1,6 +1,5 @@
 import java.util.*
-fun checkParanthesisBracket() :Boolean {
-    val inputString = "({[]})"
+fun parenthesisChecker(inputString: String) :Boolean {
     val stack = Stack<Char>()
     
     for(index in 0..inputString.length-1) {
@@ -42,7 +41,7 @@ fun checkParanthesisBracket() :Boolean {
 }
 
 fun main() {
-    
-    println(checkParanthesisBracket())
+    val inputString = "{[]()}"
+    println(parenthesisChecker(inputString))
     
 }
