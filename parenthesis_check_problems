@@ -1,0 +1,48 @@
+import java.util.*
+fun checkParanthesisBracket() :Boolean {
+    val inputString = "({[]})"
+    val stack = Stack<Char>()
+    
+    for(index in 0..inputString.length-1) {
+        
+        when(inputString.get(index)) {
+            
+            '(' -> {
+                stack.push(inputString.get(index))
+            }
+            
+            '{' -> {
+                stack.push(inputString.get(index))
+            }
+            
+            '[' -> {
+                stack.push(inputString.get(index))
+            }
+            
+            ')' -> {
+                if(stack.pop() != '(') {
+                    return false
+                }
+            }
+            
+            '}' -> {
+                if(stack.pop() != '{') {
+                    return false
+                }
+            }
+            ']' -> {
+                if(stack.pop() != '[') {
+                    return false
+                }
+            }
+        }
+    }
+    
+    return true
+}
+
+fun main() {
+    
+    println(checkParanthesisBracket())
+    
+}
