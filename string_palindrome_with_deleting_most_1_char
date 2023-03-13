@@ -1,0 +1,30 @@
+Questions:  Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+
+Solution:
+
+
+fun checkPalindromeString(input: String): Boolean {
+    val lengthInput = input.length
+    var count = 0
+    for (index in lengthInput-1 downTo 0) {
+        if (count > index) {
+            return true
+        } else {
+            if (count == index) {
+                return input[index] == input[count]
+            } else {
+                if (input[index] != input[count]) {
+                    if (input[index - 1] == input[count]) {
+                        //index--
+                    } else if (input[index] == input[count + 1]) {
+                        count++
+                    } else {
+                        return false
+                    }
+                }
+            }
+        }
+        count++
+    }
+    return true
+}
